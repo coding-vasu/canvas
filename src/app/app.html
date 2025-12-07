@@ -36,13 +36,15 @@
         icon="pi pi-bolt"
         styleClass="!bg-slate-900 !text-white !border-slate-900 !px-8 !py-4 !rounded-full !font-bold !text-lg hover:!bg-slate-800 hover:scale-105 transition-all shadow-xl shadow-slate-200"
       ></p-button>
-      <p-button
-        label="View Source"
-        icon="pi pi-github"
-        variant="outlined"
-        severity="secondary"
-        styleClass="!px-8 !py-4 !rounded-full !font-bold !text-lg !border-slate-300 !text-slate-700 !bg-white/80 backdrop-blur-md hover:!bg-white transition-all shadow-sm"
-      ></p-button>
+      <a href="https://github.com/coding-vasu/canvas" target="_blank" rel="noopener noreferrer">
+        <p-button
+          label="View Source"
+          icon="pi pi-github"
+          variant="outlined"
+          severity="secondary"
+          styleClass="!px-8 !py-4 !rounded-full !font-bold !text-lg !border-slate-300 !text-slate-700 !bg-white/80 backdrop-blur-md hover:!bg-white transition-all shadow-sm"
+        ></p-button>
+      </a>
     </div>
   </header>
 
@@ -58,7 +60,7 @@
               <div
                 class="w-14 h-14 rounded-2xl bg-slate-50 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
               >
-                <i [class]="tech.icon + ' text-3xl ' + tech.color"></i>
+                <lucide-icon [img]="tech.icon" [class]="'w-9 h-9 ' + tech.color"></lucide-icon>
               </div>
             </div>
           </ng-template>
