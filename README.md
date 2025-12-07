@@ -42,6 +42,35 @@ ng serve
 
 Navigate to `http://localhost:4200/`.
 
+## 📂 Project Structure
+
+```text
+.
+├── angular.json
+├── eslint.config.js
+├── package.json
+├── public/
+│   └── favicon.ico
+├── src/
+│   ├── app/
+│   │   ├── app.config.server.ts
+│   │   ├── app.config.ts
+│   │   ├── app.css
+│   │   ├── app.html
+│   │   ├── app.routes.server.ts
+│   │   ├── app.routes.ts
+│   │   ├── app.spec.ts
+│   │   └── app.ts
+│   ├── index.html
+│   ├── main.server.ts
+│   ├── main.ts
+│   ├── server.ts
+│   └── styles.css
+├── tsconfig.app.json
+├── tsconfig.json
+└── tsconfig.spec.json
+```
+
 ## ✅ Quality Assurance
 
 ### Linting
