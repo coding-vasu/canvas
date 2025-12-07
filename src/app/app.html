@@ -1,0 +1,81 @@
+<div
+  class="min-h-screen bg-slate-50 text-slate-800 flex flex-col items-center justify-center p-6 relative overflow-hidden"
+>
+  <!-- Background Decorations -->
+  <div
+    class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-linear-to-tr from-indigo-100 via-purple-100 to-pink-100 opacity-60 blur-3xl rounded-full -z-10 animate-fade-in pointer-events-none"
+  ></div>
+
+  <!-- Hero Section -->
+  <header class="text-center mb-16 max-w-3xl animate-fade-in-down relative z-10">
+    <div
+      class="inline-block p-4 rounded-3xl bg-white/50 backdrop-blur-sm shadow-sm mb-8 border border-white/60"
+    >
+      <img
+        src="https://angular.io/assets/images/logos/angular/angular.svg"
+        alt="Angular Logo"
+        class="h-20 w-auto mx-auto"
+      />
+    </div>
+
+    <h1
+      class="text-7xl font-black tracking-tight mb-6 bg-linear-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-transparent drop-shadow-sm"
+    >
+      Canvas
+    </h1>
+    <p class="text-2xl text-slate-600 leading-relaxed font-light tracking-wide">
+      A modern foundation for building scalable web applications. <br />
+      Powered by the <span class="font-medium text-slate-900">absolute latest</span> in web
+      technology.
+    </p>
+
+    <!-- Call to Action -->
+    <div class="mt-10 flex gap-4 justify-center">
+      <p-button
+        label="Get Started"
+        icon="pi pi-bolt"
+        styleClass="!bg-slate-900 !text-white !border-slate-900 !px-8 !py-4 !rounded-full !font-bold !text-lg hover:!bg-slate-800 hover:scale-105 transition-all shadow-xl shadow-slate-200"
+      ></p-button>
+      <p-button
+        label="View Source"
+        icon="pi pi-github"
+        variant="outlined"
+        severity="secondary"
+        styleClass="!px-8 !py-4 !rounded-full !font-bold !text-lg !border-slate-300 !text-slate-700 !bg-white/80 backdrop-blur-md hover:!bg-white transition-all shadow-sm"
+      ></p-button>
+    </div>
+  </header>
+
+  <!-- Tech Stack Grid -->
+  <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl w-full relative z-10">
+    @for (tech of techStack(); track tech.name) {
+      <div class="group hover:-translate-y-2 transition-transform duration-300 ease-out">
+        <p-card
+          styleClass="h-full shadow-lg shadow-slate-100 border border-slate-100 !bg-white/80 backdrop-blur-md group-hover:border-slate-200 group-hover:shadow-xl transition-all"
+        >
+          <ng-template pTemplate="header">
+            <div class="pt-8 px-8">
+              <div
+                class="w-14 h-14 rounded-2xl bg-slate-50 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+              >
+                <i [class]="tech.icon + ' text-3xl ' + tech.color"></i>
+              </div>
+            </div>
+          </ng-template>
+          <div class="px-2">
+            <h3
+              class="font-bold text-xl mb-3 text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-slate-900 group-hover:to-slate-600 transition-all"
+            >
+              {{ tech.name }}
+            </h3>
+            <p class="text-slate-500 text-sm leading-relaxed">{{ tech.desc }}</p>
+          </div>
+        </p-card>
+      </div>
+    }
+  </main>
+
+  <footer class="mt-16 text-slate-400 text-sm font-medium">Built with ❤️ using Angular v21</footer>
+</div>
+
+<router-outlet />
