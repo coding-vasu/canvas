@@ -1,0 +1,280 @@
+<div
+  class="min-h-screen bg-[var(--color-obsidian)] text-[var(--color-text-primary)] font-sans relative overflow-hidden"
+>
+  <!-- Background Grid -->
+  <div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
+
+  <!-- Navbar -->
+  <nav class="relative z-50 flex items-center justify-between px-6 py-6 max-w-7xl mx-auto">
+    <div class="flex items-center gap-2">
+      <div
+        class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-teal-500 flex items-center justify-center"
+      >
+        <lucide-icon [img]="Sparkles" class="text-white w-5 h-5"></lucide-icon>
+      </div>
+      <span class="font-bold text-xl tracking-tight">Canvas AI</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <button class="text-text-secondary hover:text-white transition-colors text-sm font-medium">
+        Pricing
+      </button>
+      <button class="text-text-secondary hover:text-white transition-colors text-sm font-medium">
+        Showcase
+      </button>
+      <button
+        [routerLink]="['/auth/login']"
+        class="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 transition-all text-sm font-medium cursor-pointer"
+      >
+        Login
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative z-10 pt-20 pb-32 px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <!-- Left: Input & Copy -->
+      <div class="space-y-8">
+        <h1 class="text-5xl md:text-7xl font-bold leading-tight tracking-tight">
+          Dream in Prose.<br />
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-teal-500">
+            Design in Pixels.
+          </span>
+        </h1>
+        <p class="text-xl text-text-secondary font-light leading-relaxed max-w-lg">
+          The intelligent canvas where your words and references instantly become professional,
+          layered UI mockups.
+        </p>
+
+        <!-- Input Bar with "Typing" animation -->
+        <div
+          class="glass-panel p-2 rounded-2xl flex items-center gap-4 shadow-2xl relative overflow-hidden group"
+        >
+          <!-- Animated "Search" glow -->
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-teal-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          ></div>
+
+          <div class="relative z-10 bg-[#16181D] w-full rounded-xl flex items-center px-4 py-4">
+            <lucide-icon [img]="Wand2" class="text-indigo-500 w-6 h-6 mr-3"></lucide-icon>
+            <div class="font-mono text-sm md:text-base text-text-secondary flex-1 truncate">
+              {{ typingText()
+              }}<span
+                class="animate-cursor inline-block w-2.5 h-5 bg-[var(--color-teal-500)] ml-1 align-middle"
+              ></span>
+            </div>
+
+            <!-- Reference Drop Zone -->
+            <div
+              class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/10 bg-white/5 text-xs text-neutral-400 hover:bg-white/10 transition-colors cursor-pointer ml-3"
+            >
+              <lucide-icon [img]="Image" class="w-4 h-4"></lucide-icon>
+              <span>Add Ref</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+          <p-button
+            [routerLink]="['/auth/register']"
+            label="Start Generating – Free"
+            styleClass="!bg-gradient-to-r !from-indigo-500 !to-teal-500 !border-none !text-white !font-bold !px-8 !py-4 !rounded-full !shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:!shadow-[0_0_30px_rgba(20,184,166,0.4)] !transition-all cursor-pointer"
+          ></p-button>
+          <button
+            class="flex items-center gap-3 px-8 py-4 rounded-full border border-white/10 hover:bg-white/5 transition-all group"
+          >
+            <div
+              class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform"
+            >
+              <lucide-icon [img]="Play" class="w-4 h-4 fill-white"></lucide-icon>
+            </div>
+            <span class="font-medium">Watch Workflow</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right: Materializing UI -->
+      <div
+        class="relative bg-neutral-900 rounded-3xl border border-white/10 shadow-2xl overflow-hidden aspect-[4/3] group"
+      >
+        <!-- Floating UI Elements (CSS Animation) -->
+        <div class="absolute top-8 left-8 right-8 bottom-8 flex flex-col gap-4">
+          <!-- Header (Skeleton to UI) -->
+          <div
+            class="h-16 w-full rounded-xl bg-white/5 border border-white/5 flex items-center px-6 justify-between animate-pulse"
+          >
+            <div class="w-32 h-4 bg-white/10 rounded-full"></div>
+            <div class="w-10 h-10 rounded-full bg-white/10"></div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 flex-1">
+            <!-- Card 1 -->
+            <div class="bg-white/5 rounded-2xl border border-white/5 p-6 space-y-4">
+              <div
+                class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-teal-500 opacity-80"
+              ></div>
+              <div class="space-y-2">
+                <div class="h-6 w-3/4 bg-white/10 rounded-lg"></div>
+                <div class="h-4 w-1/2 bg-white/5 rounded-lg"></div>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div
+              class="bg-white/5 rounded-2xl border border-white/5 p-6 space-y-4 relative overflow-hidden"
+            >
+              <div class="absolute inset-0 animate-shimmer"></div>
+              <div class="flex justify-between items-start">
+                <div class="w-12 h-12 rounded-xl bg-neutral-800"></div>
+                <div class="px-2 py-1 rounded bg-green-500/20 text-green-400 text-xs">+12%</div>
+              </div>
+              <div class="h-8 w-20 bg-white/10 rounded-lg mt-auto"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="relative z-10 py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">From thought to frontend.</h2>
+        <p class="text-text-secondary">Three steps to your production-ready UI.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        @for (step of steps(); track step.step) {
+          <div
+            class="glass-panel p-8 rounded-2xl relative group hover:bg-white/5 hover:border-white/20 hover:-translate-y-1 transition-all duration-300 cursor-default"
+          >
+            <div
+              class="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-neutral-900 border border-white/10 flex items-center justify-center font-mono font-bold text-teal-500 z-20 group-hover:bg-teal-500 group-hover:text-black transition-colors duration-300 shadow-lg"
+            >
+              {{ step.step }}
+            </div>
+            <div class="mb-6">
+              <lucide-icon
+                [img]="step.icon"
+                class="w-8 h-8 text-indigo-500 group-hover:text-teal-500 group-hover:scale-110 transition-all duration-300"
+              ></lucide-icon>
+            </div>
+            <h3 class="text-xl font-bold mb-2 group-hover:text-white transition-colors">
+              {{ step.title }}
+            </h3>
+            <p class="text-text-secondary leading-relaxed text-sm">
+              {{ step.desc }}
+            </p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Grid -->
+  <section
+    class="relative z-10 py-24 px-6 bg-neutral-900/50 backdrop-blur-sm border-y border-white/5"
+  >
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16 space-y-4">
+        <h2 class="text-3xl md:text-5xl font-bold">Built for details, not just demos.</h2>
+        <p class="text-text-secondary text-lg max-w-2xl mx-auto">
+          Canvas understands layout, hierarchy, and tokens. It doesn't just paint pixels; it
+          constructs systems.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        @for (feature of features(); track feature.title) {
+          <div
+            [class]="
+              feature.cols +
+              ' ' +
+              feature.bgClass +
+              ' rounded-3xl p-8 border border-white/10 relative overflow-hidden group hover:border-white/20 transition-all'
+            "
+          >
+            <div
+              class="absolute top-0 right-0 p-6 opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
+            >
+              <lucide-icon [img]="feature.icon" class="w-24 h-24 text-white/5"></lucide-icon>
+            </div>
+
+            <div class="relative z-10 h-full flex flex-col justify-end">
+              <div
+                class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6 backdrop-blur-md border border-white/10 group-hover:bg-white/20 transition-all duration-300"
+              >
+                <lucide-icon [img]="feature.icon" class="w-6 h-6 text-white"></lucide-icon>
+              </div>
+              <h3 class="text-2xl font-bold mb-2">{{ feature.title }}</h3>
+              <p class="text-text-secondary leading-relaxed feature-desc">
+                {{ feature.desc }}
+              </p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="relative z-10 py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        @for (item of testimonials(); track item.author) {
+          <div
+            class="glass-panel p-8 rounded-2xl flex flex-col gap-6 hover:scale-[1.02] hover:bg-white/5 hover:border-white/20 transition-all duration-300 group"
+          >
+            <div class="text-teal-500">
+              <lucide-icon [img]="Quote" class="w-8 h-8"></lucide-icon>
+            </div>
+            <p class="text-lg leading-relaxed text-white font-medium">"{{ item.quote }}"</p>
+            <div class="flex items-center gap-4 mt-auto">
+              <img
+                [src]="item.avatar"
+                alt="Avatar"
+                class="w-10 h-10 rounded-full border-2 border-transparent group-hover:border-indigo-500 transition-colors"
+              />
+              <div>
+                <div class="font-bold text-sm">{{ item.author }}</div>
+                <div class="text-xs text-text-secondary">{{ item.role }}</div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Reference Engine / Footer CTA -->
+  <section class="relative z-10 py-32 px-6 text-center">
+    <div class="max-w-4xl mx-auto space-y-12">
+      <h2 class="text-4xl md:text-6xl font-bold tracking-tight">Ready to build the future?</h2>
+
+      <!-- Big Footer Input -->
+      <div
+        class="glass-panel p-1 rounded-2xl max-w-2xl mx-auto transform hover:scale-[1.02] transition-transform duration-300"
+      >
+        <div class="bg-neutral-900 rounded-xl flex items-center p-2">
+          <input
+            type="text"
+            placeholder="Describe your dream app..."
+            class="bg-transparent border-none text-white placeholder-neutral-600 flex-1 px-6 py-4 outline-none font-mono text-lg"
+          />
+          <button
+            [routerLink]="['/auth/register']"
+            class="bg-white text-black font-bold py-3 px-8 rounded-lg hover:bg-neutral-200 transition-colors cursor-pointer"
+          >
+            Generate
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer
+    class="text-center py-8 text-[var(--color-text-secondary)] text-sm border-t border-white/5 relative z-10"
+  >
+    &copy; 2025 Canvas AI. All rights reserved.
+  </footer>
+</div>
