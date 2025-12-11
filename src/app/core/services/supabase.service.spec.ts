@@ -28,7 +28,6 @@ describe('SupabaseService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(SupabaseService);
-    (service as unknown as { client: unknown }).client = mockSupabaseClient; // Manually inject mock
   });
 
   it('should be created', () => {
