@@ -1,0 +1,54 @@
+<div class="flex min-h-screen items-center justify-center bg-gray-50 px-4 py-12 sm:px-6 lg:px-8">
+  <div class="w-full max-w-md space-y-8 bg-white p-8 rounded-xl shadow-lg">
+    <div>
+      <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Create your account</h2>
+    </div>
+
+    <div class="mt-8 space-y-6">
+      <form [formGroup]="form" (ngSubmit)="onRegister()" class="space-y-6">
+        <div class="space-y-4">
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+            <p-iconField iconPosition="left" class="mt-1 block w-full">
+              <p-inputIcon styleClass="pi pi-envelope" />
+              <input
+                pInputText
+                id="email"
+                formControlName="email"
+                type="email"
+                autocomplete="email"
+                class="w-full"
+                placeholder="you@example.com"
+              />
+            </p-iconField>
+          </div>
+
+          <div>
+            <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+            <p-iconField iconPosition="left" class="mt-1 block w-full">
+              <p-inputIcon styleClass="pi pi-lock" />
+              <input
+                pInputText
+                id="password"
+                formControlName="password"
+                type="password"
+                autocomplete="new-password"
+                class="w-full"
+                placeholder="Password (min 6 chars)"
+              />
+            </p-iconField>
+          </div>
+        </div>
+
+        <p-button type="submit" [loading]="loading()" label="Sign up" styleClass="w-full" />
+      </form>
+
+      <div class="text-center text-sm">
+        <span class="text-gray-500">Already have an account? </span>
+        <a routerLink="/auth/login" class="font-medium text-indigo-600 hover:text-indigo-500"
+          >Sign in</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
