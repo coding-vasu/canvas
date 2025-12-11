@@ -1,4 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 /* You can add global styles to this file, and also import other style files */
 
 @import 'tailwindcss';
 @import 'primeicons/primeicons.css';
+@import './app/core/styles/design-system.css';
+
+@theme {
+  --color-obsidian: #0f1115;
+  --color-charcoal-grid: #2d3748;
+  --color-indigo-500: #6366f1;
+  --color-teal-500: #14b8a6;
+  --color-black-high-contrast: #000000;
+
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #64748b;
+  --color-glass-border: #2a2e37;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --background-image-gradient-ai: linear-gradient(135deg, #6366f1 0%, #14b8a6 100%);
+  --background-image-gradient-border: linear-gradient(to right, #2a2e37, #6366f1);
+}
+
+@layer utilities {
+  .bg-dot-grid {
+    background-image: radial-gradient(var(--color-charcoal-grid) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .x-ray-mode * {
+    outline: 1px dashed rgba(99, 102, 241, 0.5) !important; /* Indigo outline */
+    background: rgba(15, 17, 21, 0.1) !important; /* Dim background */
+  }
+
+  .x-ray-mode .glass-panel,
+  .x-ray-mode .bg-obsidian {
+    background: rgba(0, 0, 0, 0.8) !important;
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

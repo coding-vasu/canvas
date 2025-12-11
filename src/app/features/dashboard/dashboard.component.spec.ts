@@ -8,12 +8,15 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
-  let supabaseServiceSpy: { signOut: ReturnType<typeof vi.fn> };
+  let supabaseServiceSpy: { signOut: ReturnType<typeof vi.fn>; user: ReturnType<typeof vi.fn> };
   let router: Router;
 
   beforeEach(async () => {
     supabaseServiceSpy = {
       signOut: vi.fn().mockResolvedValue({ error: null }),
+      user: vi
+        .fn()
+        .mockReturnValue({ email: 'test@example.com', user_metadata: { full_name: 'Test User' } }),
     };
 
     await TestBed.configureTestingModule({
